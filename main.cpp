@@ -400,14 +400,14 @@ void train(network &net, data_structure data, data_structure val_data, int max_i
         act = forward_propagation(net, batch_X);
 
         previous_gradients = backpropagation(net, act, batch_X, batch_y, previous_gradients, learning_rate*(1.0/(1.0+iter/300.0)), 0.9);
-				curr_accuracy = accuracy(predict(net, val_data.features), val_data.target_class);
-				if(curr_accuracy < prev_accuracy)
+		curr_accuracy = accuracy(predict(net, val_data.features), val_data.target_class);
+		if(curr_accuracy < prev_accuracy)
             check++;
         else
             {
-							check = 0;
-							//prev_accuracy = curr_accuracy;
-						}
+				check = 0;
+				//prev_accuracy = curr_accuracy;
+			}
         if(check==100)
             break;
         if(curr_accuracy>best_accuracy)
